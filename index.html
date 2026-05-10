@@ -3,7 +3,7 @@
 <head>
 
 <!-- =========================
-     IKLAN POPCASH (TETAP)
+     IKLAN POPCASH (ASLI TETAP)
 ========================= -->
 
 <script type="text/javascript">
@@ -26,17 +26,21 @@ document.body.appendChild(pop_tag)
 };
 </script>
 
-<meta name="ppck-ver" content="a6d1ceb3ea679d9a8a8f8df729908596" />
-<meta name="ppck-ver" content="a35973a51f53f9eae15ee92e7154f197" />
+<meta name="ppck-ver" content="a6d1ceb3ea679d9a8a8f8df729908596"/>
+<meta name="ppck-ver" content="a35973a51f53f9eae15ee92e7154f197"/>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>PAUD KB Assyifa Brumbung</title>
+<title>PAUD-KB ASSYIFA' BRUMBUNG</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
+
+/* =========================
+   RESET
+========================= */
 
 *{
 margin:0;
@@ -48,28 +52,52 @@ body{
 
 font-family:'Poppins',sans-serif;
 
-background:
-linear-gradient(
-135deg,
-#0f2027,
-#203a43,
-#2c5364
-);
-
-min-height:100vh;
-
 overflow-x:hidden;
 
 color:white;
+
+min-height:100vh;
+
+background:black;
 }
 
 /* =========================
-   OVERLAY ANIMASI
+   VIDEO BACKGROUND
 ========================= */
 
-body::before{
+.video-background{
 
-content:'';
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+overflow:hidden;
+
+z-index:-3;
+}
+
+.video-background video{
+
+width:100%;
+height:100%;
+
+object-fit:cover;
+
+filter:
+brightness(0.45)
+contrast(1.1)
+saturate(1.1);
+}
+
+/* =========================
+   OVERLAY
+========================= */
+
+.overlay{
 
 position:fixed;
 
@@ -80,27 +108,76 @@ width:100%;
 height:100%;
 
 background:
-radial-gradient(
-circle at top left,
-rgba(255,255,255,0.08),
-transparent 40%
+linear-gradient(
+rgba(0,0,0,0.35),
+rgba(0,0,0,0.65)
 );
 
-z-index:-1;
-
-animation:bgmove 8s infinite alternate;
+z-index:-2;
 }
 
-@keyframes bgmove{
+/* =========================
+   JAM
+========================= */
 
-0%{
-transform:scale(1);
+#clock{
+
+position:fixed;
+
+top:15px;
+right:15px;
+
+background:rgba(255,255,255,0.15);
+
+padding:10px 15px;
+
+border-radius:15px;
+
+backdrop-filter:blur(10px);
+
+font-weight:bold;
+
+z-index:999;
 }
 
-100%{
-transform:scale(1.1);
+/* =========================
+   TOMBOL MUSIK
+========================= */
+
+.music-btn{
+
+position:fixed;
+
+left:20px;
+bottom:20px;
+
+z-index:999;
+
+border:none;
+
+background:#00c97f;
+
+color:white;
+
+padding:14px 18px;
+
+border-radius:50px;
+
+font-size:16px;
+
+cursor:pointer;
+
+box-shadow:
+0 0 20px rgba(0,255,170,0.5);
+
+transition:0.3s;
 }
 
+.music-btn:hover{
+
+transform:scale(1.05);
+
+background:#00e18f;
 }
 
 /* =========================
@@ -138,21 +215,65 @@ backdrop-filter:blur(10px);
 border:1px solid rgba(255,255,255,0.12);
 
 box-shadow:
-0 10px 40px rgba(0,0,0,0.4);
-
+0 10px 40px rgba(0,0,0,0.45);
 }
 
 /* =========================
-   LOGO
+   LOGO AREA
 ========================= */
 
-.logo{
+.logo-container{
 
-width:150px;
+position:relative;
 
+width:170px;
+height:170px;
+
+margin:auto;
 margin-bottom:20px;
 
+display:flex;
+
+justify-content:center;
+align-items:center;
+}
+
+/* LOGO UTAMA */
+
+.main-logo{
+
+position:absolute;
+
+width:170px;
+
 animation:float 3s ease-in-out infinite;
+
+transition:1s;
+}
+
+/* INTRO GIF / MP4 */
+
+.intro-logo{
+
+position:absolute;
+
+width:170px;
+
+opacity:0;
+
+transition:1s;
+
+border-radius:20px;
+}
+
+.show-intro{
+
+opacity:1;
+}
+
+.hide-main{
+
+opacity:0;
 }
 
 @keyframes float{
@@ -162,9 +283,8 @@ transform:translateY(0);
 }
 
 50%{
-transform:translateY(-10px);
+transform:translateY(-8px);
 }
-
 }
 
 /* =========================
@@ -284,27 +404,72 @@ border-radius:20px;
 }
 
 /* =========================
-   JAM
+   PROFIL
 ========================= */
 
-#clock{
+.profile-section{
 
-position:fixed;
+margin-top:40px;
 
-top:15px;
-right:15px;
+padding:30px;
 
-background:rgba(255,255,255,0.15);
+border-radius:25px;
 
-padding:10px 15px;
-
-border-radius:15px;
+background:rgba(255,255,255,0.08);
 
 backdrop-filter:blur(10px);
+}
 
-font-weight:bold;
+.profile-title{
 
-z-index:999;
+font-size:28px;
+
+margin-bottom:20px;
+
+text-align:center;
+}
+
+.profile-text{
+
+line-height:1.9;
+
+text-align:center;
+
+color:#ddd;
+}
+
+/* =========================
+   GALERI
+========================= */
+
+.gallery{
+
+margin-top:40px;
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(250px,1fr));
+
+gap:20px;
+}
+
+.gallery img{
+
+width:100%;
+
+border-radius:20px;
+
+height:220px;
+
+object-fit:cover;
+
+transition:0.3s;
+}
+
+.gallery img:hover{
+
+transform:scale(1.03);
 }
 
 /* =========================
@@ -332,8 +497,14 @@ h1{
 font-size:26px;
 }
 
-.logo{
-width:120px;
+.logo-container{
+width:130px;
+height:130px;
+}
+
+.main-logo,
+.intro-logo{
+width:130px;
 }
 
 .hero-card{
@@ -348,6 +519,44 @@ padding:22px;
 
 <body>
 
+<!-- =========================
+     VIDEO BACKGROUND
+========================= -->
+
+<div class="video-background">
+
+<video autoplay muted loop playsinline>
+
+<!-- GANTI LINK VIDEO -->
+
+<source src="bg.mp4" type="video/mp4">
+
+</video>
+
+</div>
+
+<div class="overlay"></div>
+
+<!-- =========================
+     AUDIO
+========================= -->
+
+<audio id="bgMusic" loop>
+
+<!-- GANTI MUSIC -->
+
+<source src="music.mp3" type="audio/mp3">
+
+</audio>
+
+<!-- =========================
+     TOMBOL MUSIK
+========================= -->
+
+<button class="music-btn" onclick="playMusic()">
+🔊 Musik
+</button>
+
 <!-- JAM -->
 
 <div id="clock"></div>
@@ -356,19 +565,56 @@ padding:22px;
 
 <div class="hero-card">
 
-<!-- LOGO -->
+<!-- =========================
+     LOGO DINAMIS
+========================= -->
 
-<img src="logo_hd.png" alt="Logo KB Assyifa" class="logo">
+<div class="logo-container">
+
+<!-- LOGO UTAMA -->
+
+<img
+src="logo_hd.png"
+class="main-logo"
+id="mainLogo">
+
+<!-- INTRO 1 -->
+
+<img
+src="intro1.gif"
+class="intro-logo"
+id="intro1">
+
+<!-- INTRO 2 -->
+
+<img
+src="intro2.gif"
+class="intro-logo"
+id="intro2">
+
+<!-- INTRO 3 -->
+
+<img
+src="intro3.gif"
+class="intro-logo"
+id="intro3">
+
+</div>
 
 <!-- MARQUEE -->
 
 <marquee behavior="scroll" direction="left">
-✨ Selamat Datang di Website Resmi PAUD KB Assyifa Brumbung ✨
+
+✨ Selamat Datang di Website Resmi
+PAUD-KB ASSYIFA'
+Desa Brumbung Kecamatan Jepon
+Kabupaten Blora Jawa Tengah ✨
+
 </marquee>
 
 <!-- JUDUL -->
 
-<h1>PAUD KB Assyifa Brumbung</h1>
+<h1>PAUD-KB ASSYIFA' BRUMBUNG</h1>
 
 <div class="desc">
 
@@ -488,7 +734,7 @@ YouTube
 </a>
 
 <a class="menu-card"
-href="https://wa.me/6282135787023"
+href="https://wa.me/6282313744454"
 target="_blank">
 
 <span class="menu-icon">💬</span>
@@ -523,13 +769,47 @@ src="//pl27069849.profitableratecpm.com/8c">
 
 </div>
 
-<!-- IKLAN BAWAH -->
+</div>
 
-<div class="iklan">
+<!-- =========================
+     PROFIL SEKOLAH
+========================= -->
 
-<script type="text/javascript"
-src="//pl27069849.profitableratecpm.com/8c">
-</script>
+<div class="profile-section">
+
+<div class="profile-title">
+🏫 Profil Sekolah
+</div>
+
+<div class="profile-text">
+
+PAUD-KB ASSYIFA' BRUMBUNG
+merupakan lembaga pendidikan anak usia dini
+yang mengedepankan pendidikan islami,
+karakter, kreativitas,
+dan pembelajaran menyenangkan
+untuk membentuk generasi cerdas
+serta berakhlak mulia.
+
+</div>
+
+</div>
+
+<!-- =========================
+     GALERI
+========================= -->
+
+<div class="profile-section">
+
+<div class="profile-title">
+📸 Galeri Kegiatan
+</div>
+
+<div class="gallery">
+
+<img src="galeri1.jpg">
+<img src="galeri2.jpg">
+<img src="galeri3.jpg">
 
 </div>
 
@@ -537,15 +817,18 @@ src="//pl27069849.profitableratecpm.com/8c">
 
 <footer>
 
-Copyright © 2025 KB Assyifa Brumbung
+Copyright © 2025
+KB Assyifa Brumbung
 
 </footer>
 
 </div>
 
-<!-- SCRIPT JAM -->
-
 <script>
+
+/* =========================
+   JAM
+========================= */
 
 function updateClock(){
 
@@ -562,6 +845,66 @@ document.getElementById('clock')
 setInterval(updateClock,1000);
 
 updateClock();
+
+/* =========================
+   MUSIK
+========================= */
+
+function playMusic(){
+
+const music =
+document.getElementById("bgMusic");
+
+music.play();
+
+}
+
+/* =========================
+   INTRO LOGO BERGANTIAN
+========================= */
+
+const mainLogo =
+document.getElementById("mainLogo");
+
+const intros = [
+
+document.getElementById("intro1"),
+document.getElementById("intro2"),
+document.getElementById("intro3")
+
+];
+
+let currentIntro = 0;
+
+function showIntro(){
+
+mainLogo.classList.add("hide-main");
+
+intros[currentIntro]
+.classList.add("show-intro");
+
+setTimeout(()=>{
+
+intros[currentIntro]
+.classList.remove("show-intro");
+
+mainLogo.classList.remove("hide-main");
+
+currentIntro++;
+
+if(currentIntro >= intros.length){
+
+currentIntro = 0;
+
+}
+
+},5000);
+
+}
+
+/* MUNCUL SETIAP 10 DETIK */
+
+setInterval(showIntro,10000);
 
 </script>
 
